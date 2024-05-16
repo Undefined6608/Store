@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c14016b1-e971-468e-916f-a714f482d008" name="Changes" comment="BaseProject">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Store" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Store.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/ConfigDefault.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/EvaluateController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/OrderFormController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/ProductController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/UploadController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/UserController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/VerifyCodeController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entity/LocationGoods.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entity/OrderForm.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entity/Product.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entity/ProductBanner.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entity/ProductEvaluate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entity/ProductType.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entity/SysLimit.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entity/SysUser.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entity/UserAddress.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entity/UserEvaluate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/enum/index.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run.logs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/CorsMiddleware.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/LoggerMiddleware.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/TokenMiddleware.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/request/EvaluateRequest.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/request/OrderFormRequest.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/request/ProductRequest.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/request/ProductResponse.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/request/UserRequest.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/request/UserResponse.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/router/EvaluateRouter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/router/OrderFormRouter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/router/ProductRouter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/router/UpdateRouter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/router/UserRouter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/router/VerifyCodeRouter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/router/index.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/EvaluateService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/OrderFormService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/ProductService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/UserService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/index.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/font/code.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/icon/349ff6b5-9c20-4cee-9b1d-f6076199808f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/icon/3a5d5fe5-bb9a-44b7-a460-416a7f0ffb8d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/icon/8ef53985-f445-407b-a905-e652e0923a6b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/icon/d0766516-cea0-43fb-9f87-73b2fbc6c749.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/nginx.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/27a41d3c-5b3a-4e2c-bfca-24ef21c9f54b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/292d3c64-c344-4a24-9025-038bbe517ca8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/45aba3d0-31f1-4587-bf36-e4025c817a0b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/4715d7bd-ab6e-45b3-998a-c988dcad41df.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/4a454109-24b8-4725-bc8e-dd23a1eb64c4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/76b3398c-9ac0-4811-8ca0-52c582a021ca.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/84394c9e-21c9-4af5-8531-bd667dc5abc2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/993751f6-7360-4014-8763-abe6340cfa05.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/996b57fa-d00f-449f-a690-d73479da8b84.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/a126eb98-d15a-49f1-9cfb-79b1be5339cf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/a1e107d8-dbb4-4c73-ac3f-043bf2290f81.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/a6b19fa8-a368-497e-bfa1-b0b750f61233.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/ae23522f-06b7-4f5a-9a1b-ae00d9166a2d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/banner1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/banner2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/banner3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/banner4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/banner5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/banner6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/banner7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/c5392a00-2555-4ad6-9d50-8d20371f55a1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/ccba0332-4a49-4dd0-a65a-49be099a1706.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/product/fdd8e5ab-3e79-45d0-bc86-f5dabc16bba1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/index.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vercel.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file://C:/Program Files/Go" />
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2ecbVZ1kXOlwt5he3rDqYN4LlFy" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/ProjectDocumentStorage/Golang/src/Store/uploads/product&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Color Scheme Font&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\ProjectDocumentStorage\Golang\src\Store\uploads\product" />
+      <recent name="E:\ProjectDocumentStorage\Golang\src\Store\controller" />
+      <recent name="E:\ProjectDocumentStorage\Golang\src\Store\router" />
+      <recent name="E:\ProjectDocumentStorage\Golang\src\Store\static\font" />
+      <recent name="E:\ProjectDocumentStorage\Golang\src\Store\service" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="go build Store" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="Store" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="Store" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/Application.go" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build Store" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="BaseProject" />
+    <option name="LAST_COMMIT_MESSAGE" value="BaseProject" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>
