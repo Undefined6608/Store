@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-// Config 配置 yaml 结构
+// Config /** 配置 yaml 结构
 type Config struct {
 	// 端口号
 	Port string `yaml:"port"`
@@ -79,7 +79,7 @@ type Config struct {
 	} `yaml:"upload"`
 }
 
-// Default 获取 yaml 配置
+// Default /** 获取 yaml 配置
 func Default() Config {
 	// 实例化配置对象
 	var configObj Config
@@ -99,17 +99,17 @@ func Default() Config {
 	return configObj
 }
 
-// Response 返回值类型
+// Response /** 返回值类型
 type Response struct {
 	Code    int         `json:"code"` // 响应值
 	Message string      `json:"msg"`  // 提示信息
 	Data    interface{} `json:"data"` // 数据
 }
 
-// LogFilePath 日志存放地址
+// LogFilePath /** 日志存放地址
 var LogFilePath = Default().LogConfig.Path
 
-// LogFileName 日志文件名
+// LogFileName /** 日志文件名
 var LogFileName = Default().LogConfig.Name
 
 // PhoneReg /** 定义电话号码正则
@@ -121,20 +121,20 @@ var EmailReg = Default().Regular.Email
 // EmailConfig /** 邮箱发送配置
 var EmailConfig = Default().EmailConfig
 
-// Encryption 加密配置
+// Encryption /** 加密配置
 var Encryption = Default().Encryption
 
-// TokenPrivateKey Token 私钥配置
+// TokenPrivateKey /** Token 私钥配置
 var TokenPrivateKey = Default().Token.PrivateKey
 
-// TokenEffectAge Token 生命周期配置
+// TokenEffectAge /** Token 生命周期配置
 const TokenEffectAge = 1 * 24 * time.Hour
 
-// NotVerifyUrl 绕过验证的地址
+// NotVerifyUrl /** 绕过验证的地址
 var NotVerifyUrl = Default().NotVerifyUrl
 
-// Cors 跨域
+// Cors /** 跨域
 var Cors = Default().Cors
 
-// Upload 上传配置
+// Upload /** 上传配置
 var Upload = Default().Upload

@@ -1,4 +1,4 @@
-// Package entity/** 商品轮播图表
+// Package entity /** 商品轮播图表
 /**
  * @projectName:    Store
  * @package:        entity

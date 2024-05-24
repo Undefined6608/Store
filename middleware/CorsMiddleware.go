@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// CorsMiddleware 跨域中间件
+// CorsMiddleware /** 跨域中间件
 func CorsMiddleware() gin.HandlerFunc {
 	corsConfig := cors.DefaultConfig()
 	allowAccess := config.Cors.Ip

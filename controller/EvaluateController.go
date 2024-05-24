@@ -18,7 +18,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// AddUserEvaluate 添加商户评论
+// AddUserEvaluate /** 添加商户评论
 func AddUserEvaluate(c *gin.Context) {
 	var param request.AddUserEvaluateRequest
 	err := c.ShouldBindJSON(&param)
@@ -38,7 +38,7 @@ func AddUserEvaluate(c *gin.Context) {
 	utils.SuccessResult(c, "新增成功", nil)
 }
 
-// GetUserEvaluateList 获取商户评论列表
+// GetUserEvaluateList /** 获取商户评论列表
 func GetUserEvaluateList(c *gin.Context) {
 	var param request.GetUserEvaluateRequest
 	err := c.ShouldBindQuery(&param)
@@ -54,7 +54,7 @@ func GetUserEvaluateList(c *gin.Context) {
 	utils.SuccessResult(c, "获取成功", map[string][]entity.UserEvaluate{"userEvaluateList": userEvaluateList})
 }
 
-// DeleteUserEvaluate 删除商户评论
+// DeleteUserEvaluate /** 删除商户评论
 func DeleteUserEvaluate(c *gin.Context) {
 	var param request.DeleteUserEvaluateRequest
 	err := c.ShouldBindJSON(&param)
@@ -74,7 +74,7 @@ func DeleteUserEvaluate(c *gin.Context) {
 	utils.SuccessResult(c, "删除成功", nil)
 }
 
-// AddProductEvaluate 添加商品评论
+// AddProductEvaluate /** 添加商品评论
 func AddProductEvaluate(c *gin.Context) {
 	var param request.AddProductEvaluateRequest
 	err := c.ShouldBindJSON(&param)
@@ -94,7 +94,7 @@ func AddProductEvaluate(c *gin.Context) {
 	utils.SuccessResult(c, "新增成功", nil)
 }
 
-// GetProductEvaluateList 获取商品评论列表
+// GetProductEvaluateList /** 获取商品评论列表
 func GetProductEvaluateList(c *gin.Context) {
 	var param request.GetProductEvaluateRequest
 	err := c.ShouldBindQuery(&param)
@@ -110,7 +110,7 @@ func GetProductEvaluateList(c *gin.Context) {
 	utils.SuccessResult(c, "获取成功", map[string][]entity.ProductEvaluate{"productEvaluateList": userEvaluateList})
 }
 
-// DeleteProductEvaluate 删除商品评论
+// DeleteProductEvaluate /** 删除商品评论
 func DeleteProductEvaluate(c *gin.Context) {
 	var param request.DeleteProductEvaluateRequest
 	err := c.ShouldBindJSON(&param)

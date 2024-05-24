@@ -15,6 +15,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// ProductRouter /** 二级路由商品
 func ProductRouter(router *gin.RouterGroup) {
 	// 获取轮播图
 	router.GET("/getBannerList", controller.GetBannerList)

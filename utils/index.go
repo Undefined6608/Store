@@ -26,7 +26,7 @@ import (
 	"time"
 )
 
-// resultType 返回值方法
+// resultType /** 返回值方法
 func resultType(code int, msg string, data interface{}) config.Response {
 	return config.Response{
 		Code:    code,
@@ -35,27 +35,27 @@ func resultType(code int, msg string, data interface{}) config.Response {
 	}
 }
 
-// SuccessResult 成功响应
+// SuccessResult /** 成功响应
 func SuccessResult(c *gin.Context, msg string, data interface{}) {
 	c.JSON(http.StatusOK, resultType(http.StatusOK, msg, data))
 }
 
-// FailResult 错误响应
+// FailResult /** 错误响应
 func FailResult(c *gin.Context, msg string) {
 	c.JSON(http.StatusOK, resultType(http.StatusBadRequest, msg, nil))
 }
 
-// ServerErrorResult 服务器错误响应
+// ServerErrorResult /** 服务器错误响应
 func ServerErrorResult(c *gin.Context) {
 	c.JSON(http.StatusOK, resultType(http.StatusInternalServerError, "服务器错误！", nil))
 }
 
-// AuthorizationResult 权限错误响应
+// AuthorizationResult /** 权限错误响应
 func AuthorizationResult(c *gin.Context, msg string) {
 	c.JSON(http.StatusOK, resultType(http.StatusUnauthorized, msg, nil))
 }
 
-// StrIsEmpty 判断字符串为空
+// StrIsEmpty /** 判断字符串为空
 func StrIsEmpty(str string) bool {
 	return str == "" || len(str) == 0
 }
@@ -83,7 +83,7 @@ func generateVerificationCode() string {
 	return code
 }
 
-// SendEmail 发送邮箱
+// SendEmail /** 发送邮箱
 func SendEmail(email string) string {
 	// 生成验证码
 	code := generateVerificationCode()
@@ -111,7 +111,7 @@ func SendEmail(email string) string {
 	return code
 }
 
-// 生成图像验证码
+// generateVerificationImgCode /** 生成图像验证码
 func generateVerificationImgCode() string {
 	enumStr := "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890"
 	length := 6
@@ -124,7 +124,7 @@ func generateVerificationImgCode() string {
 	return code
 }
 
-// SendImgCode 发送图像验证码
+// SendImgCode /** 发送图像验证码
 func SendImgCode() (string, error, []byte) {
 	// 生成验证码
 	code := generateVerificationImgCode()
@@ -180,13 +180,13 @@ func SendImgCode() (string, error, []byte) {
 	return code, nil, b.Bytes()
 }
 
-// CreateUUID 生成 uuid
+// CreateUUID /** 生成 uuid
 func CreateUUID() string {
 	uCode := uuid.NewV4()
 	return uCode.String()
 }
 
-// EncryptionPassword 密码加密
+// EncryptionPassword /** 密码加密
 func EncryptionPassword(pwd string) string {
 	password, err := bcrypt.GenerateFromPassword([]byte(pwd+config.Encryption.PrivateKey.Password), config.Encryption.Salt.Password)
 	if err != nil {
@@ -195,7 +195,7 @@ func EncryptionPassword(pwd string) string {
 	return string(password)
 }
 
-// ComparePassword 密码验证
+// ComparePassword /** 密码验证
 func ComparePassword(hashPwd string, pwd string) bool {
 	err := bcrypt.CompareHashAndPassword([]byte(hashPwd), []byte(pwd+config.Encryption.PrivateKey.Password))
 	if err != nil {
@@ -204,7 +204,7 @@ func ComparePassword(hashPwd string, pwd string) bool {
 	return true
 }
 
-// GenerateToken 生成 Token
+// GenerateToken /** 生成 Token
 func GenerateToken(claims *request.TokenParams) string {
 	//设置token有效期，也可不设置有效期，采用redis的方式
 	//   1)将token存储在redis中，设置过期时间，token如没过期，则自动刷新redis过期时间，
@@ -220,7 +220,7 @@ func GenerateToken(claims *request.TokenParams) string {
 	return sign
 }
 
-// LoginSuccessToToken 登录成功，生成Token
+// LoginSuccessToToken /** 登录成功，生成Token
 func LoginSuccessToToken(param entity.SysUser) string {
 	token := GenerateToken(&request.TokenParams{
 		UserInfo: request.TokenInfo{
@@ -242,7 +242,7 @@ func LoginSuccessToToken(param entity.SysUser) string {
 	return token
 }
 
-// IsContainArr Token URL过滤
+// IsContainArr /** Token URL过滤
 func IsContainArr(noVerify []string, requestUrl string) bool {
 	for _, str := range noVerify {
 		if str == requestUrl {
@@ -252,7 +252,7 @@ func IsContainArr(noVerify []string, requestUrl string) bool {
 	return false
 }
 
-// GetCacheUser 获取缓存里的token信息
+// GetCacheUser /** 获取缓存里的token信息
 func GetCacheUser(c *gin.Context) (error, *request.TokenParams) {
 	// 获取用户信息
 	user, _ := c.Get("user")
@@ -269,7 +269,7 @@ func GetCacheUser(c *gin.Context) (error, *request.TokenParams) {
 	return nil, tokenParam
 }
 
-// GenerateFileName 生成文件名
+// GenerateFileName /** 生成文件名
 func GenerateFileName(originalName string) string {
 	// 提取文件后缀
 	extension := filepath.Ext(originalName)
@@ -279,7 +279,7 @@ func GenerateFileName(originalName string) string {
 	return uuidFilename + extension
 }
 
-// IsAllowedImageType 定义允许上传的文件类型
+// IsAllowedImageType /** 定义允许上传的文件类型
 func IsAllowedImageType(extension string) bool {
 	// 获取允许的类型
 	allowedImageTypes := config.Upload.ImgType
@@ -287,7 +287,7 @@ func IsAllowedImageType(extension string) bool {
 	return contains(allowedImageTypes, extension)
 }
 
-// 判断是否允许上传
+// contains /** 判断是否允许上传
 func contains(slice []string, val string) bool {
 	for _, item := range slice {
 		if item == val {

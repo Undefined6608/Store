@@ -3,7 +3,7 @@ package entity
 
 type UserAddress struct {
 	ID        uint32 `json:"id" gorm:"primaryKey;autoIncrement;not null;"` // 主键 地址ID
-	UserId    uint32 `json:"user_id" gorm:"not null;"`                     // 用户ID
+	UserUid   string `json:"user_uid" gorm:"not null;"`                    // 用户UID
 	Consignee string `json:"consignee" gorm:"not null;"`                   //收货人
 	Phone     string `json:"phone" gorm:"not null;"`                       // 收货人联系电话
 	Gender    bool   `json:"gender" gorm:"not null;default:0;"`            // 性别

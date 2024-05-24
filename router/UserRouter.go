@@ -15,6 +15,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// UserRouter /** 二级路由用户
 func UserRouter(router *gin.RouterGroup) {
 	// 用户测试接口
 	router.POST("/helloUser", controller.HelloUser)
@@ -34,6 +35,8 @@ func UserRouter(router *gin.RouterGroup) {
 	router.POST("/forgotPassword", controller.ForgotPassword)
 	// 查询用户信息
 	router.GET("/userInfo", controller.UserInfo)
+	// 获取全部用户信息
+	router.GET("/allUserInfo", controller.AllUserInfo)
 	// 修改用户信息
 	router.POST("/modifyUserInfo", controller.ModifyUserInfo)
 	// 修改密码

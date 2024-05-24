@@ -10,7 +10,7 @@ import (
 	"log"
 )
 
-// JwtVerifyMiddle /**验证token
+// JwtVerifyMiddle /** 验证token
 func JwtVerifyMiddle() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		//过滤是否验证token

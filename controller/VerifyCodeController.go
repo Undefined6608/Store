@@ -18,7 +18,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// SendEmailCode 获取邮箱验证码
+// SendEmailCode /** 获取邮箱验证码
 func SendEmailCode(c *gin.Context) {
 	// 获取参数接口实例
 	var param request.SendEmailParams
@@ -45,7 +45,7 @@ func SendEmailCode(c *gin.Context) {
 	utils.SuccessResult(c, "发送成功！", nil)
 }
 
-// SendImgCode 获取图像验证码
+// SendImgCode /** 获取图像验证码
 func SendImgCode(c *gin.Context) {
 	// 调用接口发送验证码
 	err, sendStatus, img := service.SendImgCodeService()

@@ -12,7 +12,8 @@ package request
 
 // GetProductByTypeParam /** 通过类型查询商品
 type GetProductByTypeParam struct {
-	TypeId uint32 `form:"typeId"` // 类型ID
+	TypeId  uint32 `form:"typeId"`  // 类型ID
+	UserUid string `form:"userUid"` // 用户ID
 }
 
 // GetProductInfoParam /** 获取商品信息

@@ -15,6 +15,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// OrderFormRouter /** 二级路由订单
 func OrderFormRouter(router *gin.RouterGroup) {
 	// 获取用户地址列表
 	router.GET("/getUserAddressList", controller.GetUserAddressList)
@@ -25,7 +26,7 @@ func OrderFormRouter(router *gin.RouterGroup) {
 	// 删除用户地址
 	router.POST("/deleteUserAddress", controller.DeleteUserAddress)
 	// 获取订单列表
-	router.GET("/getOrderFormList", controller.GetOrderFormList)
+	router.GET("/getOrderFormList", controller.GetUserOrderFormList)
 	// 获取订单详情
 	router.GET("/getOrderFormInfo", controller.GetOrderFormInfo)
 	// 添加订单

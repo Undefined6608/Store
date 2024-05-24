@@ -17,7 +17,7 @@ import (
 	"errors"
 )
 
-// GetBannerListService 获取轮播图列表
+// GetBannerListService /** 获取轮播图列表
 func GetBannerListService() (error, []entity.ProductBanner) {
 	var banner []entity.ProductBanner
 	pool.Model(&entity.ProductBanner{}).Find(&banner)
@@ -27,24 +27,25 @@ func GetBannerListService() (error, []entity.ProductBanner) {
 	return nil, banner
 }
 
-// GetProductListService 获取商品列表
+// GetProductListService /** 获取商品列表
 func GetProductListService(param *request.GetProductByTypeParam) (error, []entity.Product) {
 	var productList []entity.Product
-	if param.TypeId == 0 {
+	if param.TypeId == 0 && utils.StrIsEmpty(param.UserUid) {
 		pool.Find(&productList)
-		if len(productList) == 0 {
-			return errors.New("暂无商品列表"), nil
-		}
-		return nil, productList
 	}
-	pool.Model(&entity.Product{}).Where("type_id=?", param.TypeId).Find(&productList)
+	if param.TypeId != 0 {
+		pool.Model(&entity.Product{}).Where("type_id=?", param.TypeId).Find(&productList)
+	}
+	if !utils.StrIsEmpty(param.UserUid) {
+		pool.Model(&entity.Product{}).Where("user_uid=?", param.UserUid).Find(&productList)
+	}
 	if len(productList) == 0 {
 		return errors.New("暂无商品列表"), nil
 	}
 	return nil, productList
 }
 
-// GetProductInfoService 获取商品详情
+// GetProductInfoService /** 获取商品详情
 func GetProductInfoService(param *request.GetProductInfoParam) (error, entity.Product) {
 	var productInfo entity.Product
 	pool.Model(&entity.Product{}).Where("id=?", param.ProductId).First(&productInfo)
@@ -54,15 +55,18 @@ func GetProductInfoService(param *request.GetProductInfoParam) (error, entity.Pr
 	return nil, productInfo
 }
 
+// AddProductTypeService /** 添加商品类型
 func AddProductTypeService(param *request.AddProductTypeParam) (error, bool) {
 
 	return nil, true
 }
 
+// ModifyProductTypeService /** 修改商品类型
 func ModifyProductTypeService(param *request.ModifyProductTypeParam) (error, bool) {
 	return nil, true
 }
 
+// GetProductTypeService /** 获取商品类型
 func GetProductTypeService() (error, []entity.ProductType) {
 	var productType []entity.ProductType
 	pool.Model(&entity.ProductType{}).Find(&productType)
@@ -72,7 +76,7 @@ func GetProductTypeService() (error, []entity.ProductType) {
 	return nil, productType
 }
 
-// AddProductService 添加商品
+// AddProductService /** 添加商品
 func AddProductService(tokenInfo *request.TokenParams, param *request.AddProductParam) (error, bool) {
 	var productType entity.ProductType
 	var product entity.Product
@@ -107,21 +111,22 @@ func AddProductService(tokenInfo *request.TokenParams, param *request.AddProduct
 	return nil, true
 }
 
-// ModifyProductService 修改商品
+// ModifyProductService /** 修改商品
 func ModifyProductService(param *request.ModifyProductParam) (error, bool) {
 	return nil, true
 }
 
-// DeleteProductService 删除商品
+// DeleteProductService /** 删除商品
 func DeleteProductService(param *request.DeleteProductParam) (error, bool) {
 	return nil, true
 }
 
-// SetProductStatusService 设置商品是否上架
+// SetProductStatusService /** 设置商品是否上架
 func SetProductStatusService(param *request.SetProductStatusParam) (error, bool) {
 	return nil, true
 }
 
+// DeleteProductTypeService /** 删除商品类型
 func DeleteProductTypeService(param *request.DeleteProductTypeParam) (error, bool) {
 	return nil, true
 }

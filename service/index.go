@@ -45,7 +45,7 @@ func VerDataBase() {
 	}
 }
 
-// RedisClient Redis 数据库连接
+// RedisClient /** Redis 数据库连接
 func RedisClient() *redis.Client {
 	// 拿到 Redis 数据库配置
 	redisConfig := config.Default().RedisConfig
@@ -61,5 +61,5 @@ func RedisClient() *redis.Client {
 	return rdb
 }
 
-// 获取数据库连接池
+// pool /** 获取数据库连接池
 var pool = Pool()

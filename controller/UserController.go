@@ -8,13 +8,13 @@ import (
 	"net/http"
 )
 
-// HelloUser 测试
+// HelloUser /** 测试
 func HelloUser(c *gin.Context) {
 	// 返回数据
 	c.JSON(http.StatusOK, gin.H{"msg": "HelloUser!"})
 }
 
-// UserNameOccupy 用户名查重
+// UserNameOccupy /** 用户名查重
 func UserNameOccupy(c *gin.Context) {
 	// 获取参数接口实例
 	var param request.UserNameOccupyParams
@@ -41,7 +41,7 @@ func UserNameOccupy(c *gin.Context) {
 	utils.SuccessResult(c, "可以使用", nil)
 }
 
-// PhoneOccupy 电话号码查重
+// PhoneOccupy /** 电话号码查重
 func PhoneOccupy(c *gin.Context) {
 	// 获取参数接口实例
 	var param request.PhoneOccupyParams
@@ -68,7 +68,7 @@ func PhoneOccupy(c *gin.Context) {
 	utils.SuccessResult(c, "可以使用", nil)
 }
 
-// EmailOccupy 邮箱查重
+// EmailOccupy /** 邮箱查重
 func EmailOccupy(c *gin.Context) {
 	// 获取参数接口实例
 	var param request.EmailOccupyParams
@@ -95,7 +95,7 @@ func EmailOccupy(c *gin.Context) {
 	utils.SuccessResult(c, "可以使用", nil)
 }
 
-// Register 注册
+// Register /** 注册
 func Register(c *gin.Context) {
 	// 获取参数接口实例
 	var param request.RegisterParams
@@ -121,7 +121,7 @@ func Register(c *gin.Context) {
 	utils.SuccessResult(c, "注册成功！", nil)
 }
 
-// PhoneLogin 电话号码登录
+// PhoneLogin /** 电话号码登录
 func PhoneLogin(c *gin.Context) {
 	// 拿到电话号码登录参数实体类
 	var param request.PhoneLoginParams
@@ -142,7 +142,7 @@ func PhoneLogin(c *gin.Context) {
 	utils.SuccessResult(c, "登录成功！", map[string]interface{}{"token": token})
 }
 
-// EmailLogin 邮箱登录
+// EmailLogin /** 邮箱登录
 func EmailLogin(c *gin.Context) {
 	// 拿到电话号码登录参数实体类
 	var param request.EmailLoginParams
@@ -168,7 +168,7 @@ func EmailLogin(c *gin.Context) {
 	utils.SuccessResult(c, "登录成功！", map[string]interface{}{"token": token})
 }
 
-// ForgotPassword 忘记密码
+// ForgotPassword /** 忘记密码
 func ForgotPassword(c *gin.Context) {
 	// 获取参数接口实例
 	var param request.ForgotPasswordParams
@@ -194,7 +194,7 @@ func ForgotPassword(c *gin.Context) {
 	utils.SuccessResult(c, "修改成功！", nil)
 }
 
-// UserInfo 用户信息
+// UserInfo /** 用户信息
 func UserInfo(c *gin.Context) {
 	err, tokenParam := utils.GetCacheUser(c)
 	if err != nil {
@@ -217,7 +217,22 @@ func UserInfo(c *gin.Context) {
 	})
 }
 
-// ModifyUserInfo 修改用户信息
+// AllUserInfo /** 全部用户信息
+func AllUserInfo(c *gin.Context) {
+	err, tokenParam := utils.GetCacheUser(c)
+	if err != nil {
+		utils.FailResult(c, err.Error())
+		return
+	}
+	err, userInfoList := service.AllUserInfoService(tokenParam)
+	if err != nil {
+		utils.FailResult(c, err.Error())
+		return
+	}
+	utils.SuccessResult(c, "获取成功！", map[string][]request.UserResponse{"allUserList": *userInfoList})
+}
+
+// ModifyUserInfo /** 修改用户信息
 func ModifyUserInfo(c *gin.Context) {
 	var params request.ModifyUserInfoParams
 	err := c.ShouldBindJSON(&params)
@@ -242,7 +257,7 @@ func ModifyUserInfo(c *gin.Context) {
 	utils.SuccessResult(c, "修改成功", nil)
 }
 
-// ModifyPassword 修改密码
+// ModifyPassword /** 修改密码
 func ModifyPassword(c *gin.Context) {
 	// 获取参数类型对象
 	var params request.ModifyPasswordParams
@@ -271,7 +286,7 @@ func ModifyPassword(c *gin.Context) {
 	utils.SuccessResult(c, "修改成功", nil)
 }
 
-// Logout 退出登录
+// Logout /** 退出登录
 func Logout(c *gin.Context) {
 	// 获取用户信息
 	user, _ := c.Get("user")

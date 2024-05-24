@@ -15,6 +15,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// VerifyCodeRouter /** 验证码路由
 func VerifyCodeRouter(router *gin.RouterGroup) {
 	// 邮箱验证码
 	router.POST("/emailCode", controller.SendEmailCode)

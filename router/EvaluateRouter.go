@@ -15,6 +15,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// EvaluateRouter /** 二级路由评论
 func EvaluateRouter(router *gin.RouterGroup) {
 	// 获取商户评论列表
 	router.GET("/getUserEvaluateList", controller.GetUserEvaluateList)

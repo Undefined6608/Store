@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-// LoggerToFile 日志记录到文件
+// LoggerToFile /** 日志记录到文件
 func LoggerToFile() gin.HandlerFunc {
 
 	logFilePath := config.LogFilePath
@@ -70,14 +70,14 @@ func LoggerToFile() gin.HandlerFunc {
 	}
 }
 
-// LoggerToMongo 日志记录到 MongoDB
+// LoggerToMongo /** 日志记录到 MongoDB
 func LoggerToMongo() gin.HandlerFunc {
 	return func(c *gin.Context) {
 
 	}
 }
 
-// LoggerToES 日志记录到 ES
+// LoggerToES /** 日志记录到 ES
 func LoggerToES() gin.HandlerFunc {
 	return func(c *gin.Context) {
 

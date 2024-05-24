@@ -18,7 +18,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// AddUserAddress 添加用户地址
+// AddUserAddress /** 添加用户地址
 func AddUserAddress(c *gin.Context) {
 	var param request.AddUserAddressParams
 	err := c.ShouldBindJSON(&param)
@@ -38,9 +38,10 @@ func AddUserAddress(c *gin.Context) {
 	utils.SuccessResult(c, "新增成功", nil)
 }
 
-// GetUserAddressList 获取用户地址列表
+// GetUserAddressList /** 获取用户地址列表
 func GetUserAddressList(c *gin.Context) {
-	err, addresses := service.GetUserAddressListService()
+	err, params := utils.GetCacheUser(c)
+	err, addresses := service.GetUserAddressListService(params)
 	if err != nil {
 		utils.FailResult(c, err.Error())
 		return
@@ -48,7 +49,7 @@ func GetUserAddressList(c *gin.Context) {
 	utils.SuccessResult(c, "获取成功", map[string][]entity.UserAddress{"userAddress": addresses})
 }
 
-// ModifyUserAddress 修改用户地址
+// ModifyUserAddress /** 修改用户地址
 func ModifyUserAddress(c *gin.Context) {
 	var param request.ModifyUserAddressParams
 	err := c.ShouldBindJSON(&param)
@@ -68,7 +69,7 @@ func ModifyUserAddress(c *gin.Context) {
 	utils.SuccessResult(c, "修改成功", nil)
 }
 
-// DeleteUserAddress 删除用户地址
+// DeleteUserAddress /** 删除用户地址
 func DeleteUserAddress(c *gin.Context) {
 	var param request.DeleteUserAddressParams
 	err := c.ShouldBindJSON(&param)
@@ -88,7 +89,7 @@ func DeleteUserAddress(c *gin.Context) {
 	utils.SuccessResult(c, "删除成功", nil)
 }
 
-// AddOrderForm 添加订单
+// AddOrderForm /** 添加订单
 func AddOrderForm(c *gin.Context) {
 	var param request.AddOrderFormParam
 	err := c.ShouldBindJSON(&param)
@@ -108,9 +109,10 @@ func AddOrderForm(c *gin.Context) {
 	utils.SuccessResult(c, "新增成功", nil)
 }
 
-// GetOrderFormList 获取订单列表
-func GetOrderFormList(c *gin.Context) {
-	err, orderFormList := service.GetOrderFormListService()
+// GetUserOrderFormList /** 获取订单列表
+func GetUserOrderFormList(c *gin.Context) {
+	err, params := utils.GetCacheUser(c)
+	err, orderFormList := service.GetUserOrderFormListService(params)
 	if err != nil {
 		utils.FailResult(c, err.Error())
 		return
@@ -118,7 +120,7 @@ func GetOrderFormList(c *gin.Context) {
 	utils.SuccessResult(c, "获取成功", map[string][]entity.OrderForm{"orderFormList": orderFormList})
 }
 
-// GetOrderFormInfo 获取订单详情
+// GetOrderFormInfo /** 获取订单详情
 func GetOrderFormInfo(c *gin.Context) {
 	var param request.GetOrderFormInfoParam
 	err := c.ShouldBindQuery(&param)
@@ -134,7 +136,7 @@ func GetOrderFormInfo(c *gin.Context) {
 	utils.SuccessResult(c, "获取成功", map[string]entity.OrderForm{"orderForm": orderForm})
 }
 
-// ModifyOrderForm 修改订单
+// ModifyOrderForm /** 修改订单
 func ModifyOrderForm(c *gin.Context) {
 	var param request.ModifyOrderFormParam
 	err := c.ShouldBindJSON(&param)
@@ -154,7 +156,7 @@ func ModifyOrderForm(c *gin.Context) {
 	utils.SuccessResult(c, "修改成功", nil)
 }
 
-// DeleteOrderForm 删除订单
+// DeleteOrderForm /** 删除订单
 func DeleteOrderForm(c *gin.Context) {
 	var param request.DeleteOrderFormParam
 	err := c.ShouldBindJSON(&param)
@@ -174,7 +176,7 @@ func DeleteOrderForm(c *gin.Context) {
 	utils.SuccessResult(c, "删除成功", nil)
 }
 
-// SetOrderFormStatus 修改订单状态
+// SetOrderFormStatus /** 修改订单状态
 func SetOrderFormStatus(c *gin.Context) {
 	var param request.SetOrderFormStatusParam
 	err := c.ShouldBindJSON(&param)

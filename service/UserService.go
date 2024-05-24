@@ -17,7 +17,7 @@ var (
 	ctx = context.Background()
 )
 
-// UserNameOccupyService 用户名查重
+// UserNameOccupyService /** 用户名查重
 func UserNameOccupyService(userName string) (error, bool) {
 	// 创建数据库数组对象
 	var user []entity.SysUser
@@ -44,7 +44,7 @@ func UserNameOccupyService(userName string) (error, bool) {
 	return nil, len(user) == 1
 }
 
-// PhoneOccupyService 电话号码查重
+// PhoneOccupyService /** 电话号码查重
 func PhoneOccupyService(phone string) (error, bool) {
 	// 创建数据库数组对象
 	var user []entity.SysUser
@@ -71,7 +71,7 @@ func PhoneOccupyService(phone string) (error, bool) {
 	return nil, len(user) == 1
 }
 
-// EmailOccupyService 邮箱查重
+// EmailOccupyService /** 邮箱查重
 func EmailOccupyService(email string) (error, bool) {
 	// 创建数据库数组对象
 	var user []entity.SysUser
@@ -98,7 +98,7 @@ func EmailOccupyService(email string) (error, bool) {
 	return nil, len(user) == 1
 }
 
-// SendImgCodeService 发送邮图像验证码
+// SendImgCodeService /** 发送邮图像验证码
 func SendImgCodeService() (error, bool, []byte) {
 	// 生成验证码
 	code, err, img := utils.SendImgCode()
@@ -117,7 +117,7 @@ func SendImgCodeService() (error, bool, []byte) {
 	return nil, true, img
 }
 
-// SendMsgCodeService 发送邮箱验证码
+// SendMsgCodeService /** 发送邮箱验证码
 func SendMsgCodeService(email string) (error, bool) {
 	// 验证用户名参数
 	// 验证是否为空
@@ -143,7 +143,7 @@ func SendMsgCodeService(email string) (error, bool) {
 	return nil, true
 }
 
-// RegisterService 注册
+// RegisterService /** 注册
 func RegisterService(param *request.RegisterParams) (error, bool) {
 	// 判断数据是否为空
 	if utils.StrIsEmpty(param.UserName) || utils.StrIsEmpty(param.Phone) || utils.StrIsEmpty(param.Email) || utils.StrIsEmpty(param.Password) || utils.StrIsEmpty(param.VerPassword) || utils.StrIsEmpty(param.Avatar) || utils.StrIsEmpty(param.EmailCode) || utils.StrIsEmpty(param.ImgCode) {
@@ -223,7 +223,7 @@ func RegisterService(param *request.RegisterParams) (error, bool) {
 	return nil, true
 }
 
-// PhoneLoginService 电话号码登录
+// PhoneLoginService /** 电话号码登录
 func PhoneLoginService(param *request.PhoneLoginParams) (error, string) {
 	// 创建数据库数组对象
 	var user []entity.SysUser
@@ -280,7 +280,7 @@ func PhoneLoginService(param *request.PhoneLoginParams) (error, string) {
 	return nil, token
 }
 
-// EmailLoginService 邮箱登录
+// EmailLoginService /** 邮箱登录
 func EmailLoginService(param *request.EmailLoginParams) (error, bool, string) {
 	// 创建数据库数组对象
 	var user []entity.SysUser
@@ -338,7 +338,7 @@ func EmailLoginService(param *request.EmailLoginParams) (error, bool, string) {
 	return nil, true, token
 }
 
-// ForgotPasswordService ForgotPassword 忘记密码
+// ForgotPasswordService /** 忘记密码
 func ForgotPasswordService(param *request.ForgotPasswordParams) (error, bool) {
 	// 创建数据库数组对象
 	var user []entity.SysUser
@@ -399,14 +399,48 @@ func ForgotPasswordService(param *request.ForgotPasswordParams) (error, bool) {
 	return nil, true
 }
 
-// VerUserByToken 通过Token查找用户
+// VerUserByToken /** 通过Token查找用户
 func VerUserByToken(token string) (string, error) {
 	// 验证数据库中是否存有此token
 	user, err := RedisClient().Get(ctx, token).Result()
 	return user, err
 }
 
-// ModifyUserInfoService 修改用户信息
+// AllUserInfoService /** 全部用户信息
+func AllUserInfoService(tokenParam *request.TokenParams) (error, *[]request.UserResponse) {
+	var userInfoList []entity.SysUser
+	var userResponseList []request.UserResponse
+	// 判断是否拥有管理员权限
+	if tokenParam.UserInfo.LimitType != 1 {
+		return errors.New("权限不足！"), nil
+	}
+	// 查询用户信息
+	err := pool.Find(&userInfoList).Error
+	if err != nil {
+		return errors.New("查询失败！"), nil
+	}
+	// 向列表中添加数据
+	for i := range userInfoList {
+		userResponse := request.UserResponse{
+			UserName:  userInfoList[i].UserName,
+			Email:     userInfoList[i].Email,
+			Phone:     userInfoList[i].Phone,
+			Gender:    userInfoList[i].Gender,
+			LimitType: userInfoList[i].LimitType,
+			Avatar:    userInfoList[i].Avatar,
+			Integral:  userInfoList[i].Integral,
+			Balance:   userInfoList[i].Balance,
+			LikeNum:   userInfoList[i].LikeNum,
+			DontLike:  userInfoList[i].DontLike,
+			UID:       userInfoList[i].UID,
+		}
+		userResponseList = append(userResponseList, userResponse)
+	}
+
+	return nil, &userResponseList
+}
+
+// ModifyUserInfoService /** 修改用户信息
 func ModifyUserInfoService(param *request.ModifyUserInfoParams, userInfo *request.TokenInfo) (error, bool) {
 	// 判断参数是否为空
 	if utils.StrIsEmpty(param.UserName) || utils.StrIsEmpty(param.Email) || utils.StrIsEmpty(param.Phone) || utils.StrIsEmpty(param.Avatar) {
@@ -457,7 +491,7 @@ func ModifyUserInfoService(param *request.ModifyUserInfoParams, userInfo *reques
 	return nil, true
 }
 
-// ModifyPasswordService 修改密码
+// ModifyPasswordService /** 修改密码
 func ModifyPasswordService(params *request.ModifyPasswordParams, userInfo *request.TokenInfo) (error, bool) {
 	// 创建数据库数组对象
 	var user []entity.SysUser
@@ -501,7 +535,7 @@ func ModifyPasswordService(params *request.ModifyPasswordParams, userInfo *reque
 	return nil, true
 }
 
-// LogoutService 退出登录
+// LogoutService /** 退出登录
 func LogoutService(param *request.TokenParams, token string) (error, bool) {
 	// 判断参数是否为空
 	if param == nil {
