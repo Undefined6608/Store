@@ -26,13 +26,13 @@ func AddUserAddress(c *gin.Context) {
 		utils.FailResult(c, err.Error())
 		return
 	}
-	err, status := service.AddUserAddressService(&param)
+	err, userInfo := utils.GetCacheUser(c)
 	if err != nil {
 		utils.FailResult(c, err.Error())
 		return
 	}
-	if !status {
-		utils.FailResult(c, "新增失败")
+	if err := service.AddUserAddressService(&param, userInfo); err != nil {
+		utils.FailResult(c, err.Error())
 		return
 	}
 	utils.SuccessResult(c, "新增成功", nil)

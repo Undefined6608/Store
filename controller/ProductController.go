@@ -116,13 +116,8 @@ func DeleteProduct(c *gin.Context) {
 		utils.FailResult(c, err.Error())
 		return
 	}
-	err, status := service.DeleteProductService(&param)
-	if err != nil {
+	if err := service.DeleteProductService(&param); err != nil {
 		utils.FailResult(c, err.Error())
-		return
-	}
-	if !status {
-		utils.FailResult(c, "删除失败")
 		return
 	}
 	utils.SuccessResult(c, "删除成功", nil)
@@ -150,12 +145,26 @@ func SetProductStatus(c *gin.Context) {
 
 // GetProductType /** 获取商品类型
 func GetProductType(c *gin.Context) {
-	err, products := service.GetProductTypeService()
+	var param request.GetProductTypeParam
+	if err := c.ShouldBindQuery(&param); err != nil {
+		utils.FailResult(c, err.Error())
+		return
+	}
+	if param.TypeId == 0 {
+		err, products := service.GetProductTypeService()
+		if err != nil {
+			utils.FailResult(c, err.Error())
+			return
+		}
+		utils.SuccessResult(c, "获取成功", map[string][]entity.ProductType{"productType": products})
+		return
+	}
+	err, productType := service.GetProductTypeByIdService(&param)
 	if err != nil {
 		utils.FailResult(c, err.Error())
 		return
 	}
-	utils.SuccessResult(c, "获取成功", map[string][]entity.ProductType{"productType": products})
+	utils.SuccessResult(c, "获取成功", map[string]string{"typeName": productType.Type})
 }
 
 // AddProductType /** 添加商品类型

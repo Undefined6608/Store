@@ -43,4 +43,8 @@ func UserRouter(router *gin.RouterGroup) {
 	router.POST("/modifyPassword", controller.ModifyPassword)
 	// 退出登录
 	router.POST("/logout", controller.Logout)
+	// 删除用户
+	router.POST("/deleteUser", controller.DeleteUser)
+	// 通过 uid 获取用户名
+	router.GET("/getUserNameByUid", controller.GetUserNameByUid)
 }

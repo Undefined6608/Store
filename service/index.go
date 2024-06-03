@@ -39,6 +39,7 @@ func VerDataBase() {
 	err = pool.AutoMigrate(&entity.UserAddress{})
 	err = pool.AutoMigrate(&entity.UserEvaluate{})
 	err = pool.AutoMigrate(&entity.ProductBanner{})
+	err = pool.AutoMigrate(&entity.FeedBack{})
 	// 表创建失败
 	if err != nil {
 		panic(err)

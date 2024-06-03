@@ -76,6 +76,16 @@ func GetProductTypeService() (error, []entity.ProductType) {
 	return nil, productType
 }
 
+// GetProductTypeByIdService /** 通过ID获取商品类型名称
+func GetProductTypeByIdService(param *request.GetProductTypeParam) (error, *entity.ProductType) {
+	var productType entity.ProductType
+	err := pool.Model(&entity.ProductType{}).Where("id=?", param.TypeId).First(&productType).Error
+	if err != nil {
+		return errors.New("暂无数据"), nil
+	}
+	return nil, &productType
+}
+
 // AddProductService /** 添加商品
 func AddProductService(tokenInfo *request.TokenParams, param *request.AddProductParam) (error, bool) {
 	var productType entity.ProductType
@@ -117,8 +127,22 @@ func ModifyProductService(param *request.ModifyProductParam) (error, bool) {
 }
 
 // DeleteProductService /** 删除商品
-func DeleteProductService(param *request.DeleteProductParam) (error, bool) {
-	return nil, true
+func DeleteProductService(param *request.DeleteProductParam) error {
+	var product entity.Product
+	var banner entity.ProductBanner
+	if err := pool.Model(&entity.Product{}).Where("id=?", param.ProductID).First(&product).Error; err != nil {
+		return errors.New("此商品不存在！")
+	}
+	if err := pool.Model(&entity.ProductBanner{}).Where("product_id=?", param.ProductID).First(&banner).Error; err != nil {
+		return errors.New("轮播图不存在！")
+	}
+	if err := pool.Delete(&product).Error; err != nil {
+		return errors.New("删除失败！")
+	}
+	if err := pool.Model(&banner).Error; err != nil {
+		return errors.New("删除失败！")
+	}
+	return nil
 }
 
 // SetProductStatusService /** 设置商品是否上架

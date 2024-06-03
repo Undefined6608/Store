@@ -13,6 +13,7 @@ package service
 import (
 	"Store/entity"
 	"Store/request"
+	"errors"
 )
 
 // GetUserAddressListService /** 获取用户地址列表
@@ -23,8 +24,19 @@ func GetUserAddressListService(param *request.TokenParams) (error, []entity.User
 }
 
 // AddUserAddressService /** 添加用户地址
-func AddUserAddressService(param *request.AddUserAddressParams) (error, bool) {
-	return nil, true
+func AddUserAddressService(param *request.AddUserAddressParams, userInfo *request.TokenParams) error {
+	err := pool.Model(&entity.UserAddress{}).Create(&entity.UserAddress{
+		UserUid:   userInfo.UserInfo.UID,
+		Consignee: param.Consignee,
+		Phone:     param.Phone,
+		Gender:    param.Gender == 2,
+		Address:   param.Address,
+		Def:       param.Def == 2,
+	}).Error
+	if err != nil {
+		return errors.New("新增失败！")
+	}
+	return nil
 }
 
 // ModifyUserAddressService /** 修改用户地址

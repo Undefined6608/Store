@@ -14,9 +14,9 @@ package request
 type AddUserAddressParams struct {
 	Consignee string `json:"consignee" binding:"required"` //收货人
 	Phone     string `json:"phone" binding:"required"`     // 收货人联系电话
-	Gender    bool   `json:"gender" binding:"required"`    // 性别
+	Gender    int8   `json:"gender" binding:"required"`    // 性别
 	Address   string `json:"address" binding:"required"`   // 收货地址
-	Def       bool   `json:"def" binding:"required"`       // 是否为默认
+	Def       int8   `json:"def" binding:"required"`       // 是否为默认
 }
 
 // ModifyUserAddressParams /** 修改用户地址

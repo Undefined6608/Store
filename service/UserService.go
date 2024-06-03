@@ -252,7 +252,7 @@ func PhoneLoginService(param *request.PhoneLoginParams) (error, string) {
 	// 判断图像验证码是否正确
 	imgResult, err := RedisClient().Get(ctx, param.ImgCode).Result()
 	if err != nil {
-		return errors.New("图像验证码失效"), ""
+		return errors.New("图像验证码错误"), ""
 	}
 	if imgResult != enum.REDIS_IMG_VALUE {
 		return errors.New("图像验证码错误！"), ""
@@ -547,4 +547,28 @@ func LogoutService(param *request.TokenParams, token string) (error, bool) {
 		return err, false
 	}
 	return nil, true
+}
+
+// DeleteUserService /** 删除用户
+func DeleteUserService(param *request.DeleteUserParams, userInfo *request.TokenParams) error {
+	var user entity.SysUser
+	if userInfo.UserInfo.LimitType != 1 {
+		return errors.New("权限不足！")
+	}
+	if err := pool.Model(&entity.SysUser{}).Where("uid", param.UserUid).First(&user).Error; err != nil {
+		return errors.New("用户不存在！")
+	}
+	if err := pool.Delete(&user).Error; err != nil {
+		return errors.New("删除失败！")
+	}
+	return nil
+}
+
+// GetUserNameService /** 通过 Uid 查询用户名
+func GetUserNameService(param *request.GetUserNameByUidParam) (error, string) {
+	var userInfo entity.SysUser
+	if err := pool.Model(&entity.SysUser{}).Where("uid=?", param.UserUid).First(&userInfo).Error; err != nil {
+		return errors.New("用户奴存在！"), ""
+	}
+	return nil, userInfo.UserName
 }

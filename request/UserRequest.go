@@ -101,3 +101,12 @@ type ModifyPasswordParams struct {
 	ImgCode          string `json:"imgCode" binding:"required,len=6"`
 	VerifiedPassword string `json:"verifiedPassword" binding:"required,len=32"`
 }
+
+// DeleteUserParams /** 删除用户
+type DeleteUserParams struct {
+	UserUid string `json:"userUid" binding:"required"`
+}
+
+type GetUserNameByUidParam struct {
+	UserUid string `form:"userUid" binding:"required"`
+}

@@ -316,3 +316,42 @@ func Logout(c *gin.Context) {
 	// 退出成功
 	utils.SuccessResult(c, "退出成功", nil)
 }
+
+// DeleteUser /** 删除用户
+func DeleteUser(c *gin.Context) {
+	//绑定参数
+	var param request.DeleteUserParams
+	if err := c.ShouldBindJSON(&param); err != nil {
+		utils.FailResult(c, err.Error())
+		return
+	}
+	// 获取用户信息
+	err, tokenParam := utils.GetCacheUser(c)
+	if err != nil {
+		utils.FailResult(c, err.Error())
+		return
+	}
+	// 调取 service
+	if err = service.DeleteUserService(&param, tokenParam); err != nil {
+		utils.FailResult(c, err.Error())
+		return
+	}
+	// 删除成功
+	utils.SuccessResult(c, "删除成功", nil)
+}
+
+// GetUserNameByUid /** 通过 Uid 查询用户名
+func GetUserNameByUid(c *gin.Context) {
+	var param request.GetUserNameByUidParam
+	if err := c.ShouldBindQuery(&param); err != nil {
+		utils.FailResult(c, err.Error())
+		return
+	}
+	//调取 service
+	err, userName := service.GetUserNameService(&param)
+	if err != nil {
+		utils.FailResult(c, err.Error())
+		return
+	}
+	utils.SuccessResult(c, "获取成功！", map[string]string{"userName": userName})
+}

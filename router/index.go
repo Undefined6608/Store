@@ -26,4 +26,6 @@ func SetupRouterGroup(router *gin.RouterGroup) {
 	OrderFormRouter(router.Group("/orderForm"))
 	// 评论路由
 	EvaluateRouter(router.Group("/evaluate"))
+	// 反馈路由
+	FeedBackRouter(router.Group("/feedBack"))
 }

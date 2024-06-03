@@ -10,6 +10,11 @@
  */
 package request
 
+// GetProductTypeParam /** 获取商品类型
+type GetProductTypeParam struct {
+	TypeId uint32 `form:"typeId"`
+}
+
 // GetProductByTypeParam /** 通过类型查询商品
 type GetProductByTypeParam struct {
 	TypeId  uint32 `form:"typeId"`  // 类型ID
