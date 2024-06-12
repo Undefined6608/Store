@@ -4,29 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c14016b1-e971-468e-916f-a714f482d008" name="Changes" comment="Upload2024/05/24">
-      <change afterPath="$PROJECT_DIR$/controller/FeedBackController.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entity/FeedBack.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/request/FeedBackRequest.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/FeedBackRouter.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/FeedBackService.go" afterDir="false" />
+    <list default="true" id="c14016b1-e971-468e-916f-a714f482d008" name="Changes" comment="Upload2024/06/03">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Store" beforeDir="false" afterPath="$PROJECT_DIR$/Store" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Store.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Store.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/OrderFormController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/OrderFormController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ProductController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ProductController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/UserController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/UserController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/run.logs" beforeDir="false" afterPath="$PROJECT_DIR$/logs/run.logs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/request/OrderFormRequest.go" beforeDir="false" afterPath="$PROJECT_DIR$/request/OrderFormRequest.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/request/ProductRequest.go" beforeDir="false" afterPath="$PROJECT_DIR$/request/ProductRequest.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/request/UserRequest.go" beforeDir="false" afterPath="$PROJECT_DIR$/request/UserRequest.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/UserRouter.go" beforeDir="false" afterPath="$PROJECT_DIR$/router/UserRouter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/index.go" beforeDir="false" afterPath="$PROJECT_DIR$/router/index.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/OrderFormService.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/OrderFormService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/ProductService.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/ProductService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/UserService.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/UserService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/index.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/index.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +47,7 @@
     &quot;last_opened_file_path&quot;: &quot;E:/ProjectDocumentStorage/Golang/src/Store/uploads/product&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Color Scheme Font&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -115,7 +95,8 @@
     <MESSAGE value="BaseProject" />
     <MESSAGE value="Upload2024/05/16" />
     <MESSAGE value="Upload2024/05/24" />
-    <option name="LAST_COMMIT_MESSAGE" value="Upload2024/05/24" />
+    <MESSAGE value="Upload2024/06/03" />
+    <option name="LAST_COMMIT_MESSAGE" value="Upload2024/06/03" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

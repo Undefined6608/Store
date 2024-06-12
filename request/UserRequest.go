@@ -107,6 +107,7 @@ type DeleteUserParams struct {
 	UserUid string `json:"userUid" binding:"required"`
 }
 
+// GetUserNameByUidParam /** 通过 Uid 获取用户名
 type GetUserNameByUidParam struct {
 	UserUid string `form:"userUid" binding:"required"`
 }

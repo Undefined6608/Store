@@ -6,16 +6,16 @@ import (
 	routes "Store/router"
 	"Store/service"
 	"fmt"
-	genic "github.com/gin-gonic/gin"
+	gonic "github.com/gin-gonic/gin"
 	"log"
 	"net/http"
 )
 
 func main() {
 	// 获取项目路由
-	router := genic.New()
+	router := gonic.New()
 	// 挂载中间件
-	router.Use(genic.Logger(), genic.Recovery(), middleware.CorsMiddleware(), middleware.LoggerToFile(), middleware.JwtVerifyMiddle())
+	router.Use(gonic.Logger(), gonic.Recovery(), middleware.CorsMiddleware(), middleware.LoggerToFile(), middleware.JwtVerifyMiddle())
 	// 加载代理中间件
 	err := router.SetTrustedProxies([]string{"192.168.1.0/24"})
 	if err != nil {
@@ -26,7 +26,7 @@ func main() {
 	// 验证数据表是否存在
 	service.VerDataBase()
 	// 编写项目基础接口
-	router.GET("/test", func(c *genic.Context) {
+	router.GET("/test", func(c *gonic.Context) {
 		c.JSON(http.StatusOK, "HelloWorld!")
 	})
 	// 调用项目主路由
