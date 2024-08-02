@@ -9,9 +9,9 @@ data_base:
   # 用户名
   user_name: root
   # 密码
-  password: ff8e2d9f-37d5-4b5b-bc8c-8994f2fa2185
+  password: 071b956d-9b14-4bc3-8a59-a78ed16eb153
   # 数据库名
-  schema: co_store
+  schema: gin_co_store
 # 日志配置
 log_config:
   # 日志存储位置
@@ -40,7 +40,7 @@ email_config:
 redis_config:
   host: 127.0.0.1
   port: 6379
-  password: f8c5a616-a0ac-40af-a283-052746649c69
+  password: 6728d0b3-b77d-4783-896a-b8a6be7c87ad
   db: 2
 # 加密
 encryption:
