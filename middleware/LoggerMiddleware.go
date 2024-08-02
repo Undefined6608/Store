@@ -69,24 +69,3 @@ func LoggerToFile() gin.HandlerFunc {
 		)
 	}
 }
-
-// LoggerToMongo /** 日志记录到 MongoDB
-func LoggerToMongo() gin.HandlerFunc {
-	return func(c *gin.Context) {
-
-	}
-}
-
-// LoggerToES /** 日志记录到 ES
-func LoggerToES() gin.HandlerFunc {
-	return func(c *gin.Context) {
-
-	}
-}
-
-// LoggerToMQ 日志记录到 MQ
-func LoggerToMQ() gin.HandlerFunc {
-	return func(c *gin.Context) {
-
-	}
-}

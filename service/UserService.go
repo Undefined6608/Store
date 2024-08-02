@@ -3,7 +3,7 @@ package service
 import (
 	"Store/config"
 	"Store/entity"
-	"Store/enum"
+	"Store/enums"
 	"Store/request"
 	"Store/utils"
 	"context"
@@ -110,7 +110,7 @@ func SendImgCodeService() (error, bool, []byte) {
 		return errors.New("验证码发送失败"), false, nil
 	}
 	// 将 code 存入 redis 5 分钟有效期
-	if _, err := RedisClient().Set(ctx, code, enum.REDIS_IMG_VALUE, 5*time.Minute).Result(); err != nil {
+	if _, err := RedisClient().Set(ctx, code, enums.RedisImgValue, 5*time.Minute).Result(); err != nil {
 		return errors.New("发送失败"), false, nil
 	}
 	// 返回
@@ -190,7 +190,7 @@ func RegisterService(param *request.RegisterParams) (error, bool) {
 	if err != nil {
 		return errors.New("图像验证码失效"), false
 	}
-	if imgResult != enum.REDIS_IMG_VALUE {
+	if imgResult != enums.RedisImgValue {
 		return errors.New("图像验证码错误！"), false
 	}
 	// 判断用户类型
@@ -254,7 +254,7 @@ func PhoneLoginService(param *request.PhoneLoginParams) (error, string) {
 	if err != nil {
 		return errors.New("图像验证码错误"), ""
 	}
-	if imgResult != enum.REDIS_IMG_VALUE {
+	if imgResult != enums.RedisImgValue {
 		return errors.New("图像验证码错误！"), ""
 	}
 	// 验证密码正确性
@@ -311,7 +311,7 @@ func EmailLoginService(param *request.EmailLoginParams) (error, bool, string) {
 	if err != nil {
 		return errors.New("图像验证码失效"), false, ""
 	}
-	if imgResult != enum.REDIS_IMG_VALUE {
+	if imgResult != enums.RedisImgValue {
 		return errors.New("图像验证码错误！"), false, ""
 	}
 	// 验证密码正确性
@@ -371,7 +371,7 @@ func ForgotPasswordService(param *request.ForgotPasswordParams) (error, bool) {
 	if err != nil {
 		return errors.New("图像验证码失效"), false
 	}
-	if imgResult != enum.REDIS_IMG_VALUE {
+	if imgResult != enums.RedisImgValue {
 		return errors.New("图像验证码错误！"), false
 	}
 	// 判断此用户是否存在
@@ -464,7 +464,7 @@ func ModifyUserInfoService(param *request.ModifyUserInfoParams, userInfo *reques
 	if err != nil {
 		return errors.New("图像验证码失效"), false
 	}
-	if imgResult != enum.REDIS_IMG_VALUE {
+	if imgResult != enums.RedisImgValue {
 		return errors.New("图像验证码错误！"), false
 	}
 	// 验证验证码是否正确
@@ -514,7 +514,7 @@ func ModifyPasswordService(params *request.ModifyPasswordParams, userInfo *reque
 	if err != nil {
 		return errors.New("图像验证码失效"), false
 	}
-	if imgResult != enum.REDIS_IMG_VALUE {
+	if imgResult != enums.RedisImgValue {
 		return errors.New("图像验证码错误！"), false
 	}
 	// 验证密码正确性
