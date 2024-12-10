@@ -10,15 +10,16 @@ import (
 	"time"
 )
 
-// LoggerToFile /** 日志记录到文件
+// LoggerToFile 日志记录到文件
 func LoggerToFile() gin.HandlerFunc {
 
-	logFilePath := config.LogFilePath
-	logFileName := config.LogFileName
+	logFilePath := config.Default().LogConfig.Path
+	logFileName := config.Default().LogConfig.Name
+	currentTime := time.Now().Format(time.DateOnly)
 	//日志文件
-	fileName := path.Join(logFilePath, logFileName)
+	fileName := path.Join(logFilePath, currentTime+"-"+logFileName)
 	//写入文件
-	src, err := os.OpenFile(fileName, os.O_CREATE|os.O_APPEND|os.O_RDWR, os.ModeAppend)
+	src, err := os.OpenFile(fileName, os.O_WRONLY|os.O_CREATE|os.O_APPEND, os.ModeAppend)
 	if err != nil {
 		log.Fatal("err", err)
 	}
@@ -67,5 +68,26 @@ func LoggerToFile() gin.HandlerFunc {
 			reqMethod,
 			reqUri,
 		)
+	}
+}
+
+// LoggerToMongo 日志记录到 MongoDB
+func LoggerToMongo() gin.HandlerFunc {
+	return func(c *gin.Context) {
+
+	}
+}
+
+// LoggerToES 日志记录到 ES
+func LoggerToES() gin.HandlerFunc {
+	return func(c *gin.Context) {
+
+	}
+}
+
+// LoggerToMQ 日志记录到 MQ
+func LoggerToMQ() gin.HandlerFunc {
+	return func(c *gin.Context) {
+
 	}
 }

@@ -46,7 +46,7 @@ func parseToken(c *gin.Context, tokenString string) *request.TokenParams {
 	token, err := jwt.ParseWithClaims(tokenString, &request.TokenParams{}, func(token *jwt.Token) (interface{}, error) {
 		return []byte(config.TokenPrivateKey), nil
 	})
-	// 解析成功
+	// 解析失败
 	if err != nil {
 		utils.AuthorizationResult(c, "权限验证失败,无法访问系统资源！")
 		c.Abort()

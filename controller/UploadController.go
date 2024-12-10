@@ -27,7 +27,7 @@ func UserAvatar(c *gin.Context) {
 	}
 
 	// 检查文件大小
-	if file.Size > (config.Upload.MaxSize.Img << 20) { // 限制文件大小为 5MB
+	if file.Size > (config.Upload.MaxSize.Img << 20) { // 限制文件大小
 		utils.FailResult(c, "文件大小超过限制")
 		return
 	}
@@ -61,7 +61,7 @@ func ProductIcon(c *gin.Context) {
 	}
 
 	// 检查文件大小
-	if file.Size > (config.Upload.MaxSize.Img << 20) { // 限制文件大小为 5MB
+	if file.Size > (config.Upload.MaxSize.Img << 20) { // 限制文件大小
 		utils.FailResult(c, "文件大小超过限制")
 		return
 	}
